@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontendController@index');
+
+//INSTALL ROUTES
+Route::get('/install', 'InstallerController@requirements');
+Route::match(['get', 'post'], '/install/database', 'InstallerController@database');
